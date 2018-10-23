@@ -15,6 +15,10 @@ local.properties
 .loadpath
 .recommenders
 
+# DB4O
+
+*.db4o
+
 # External tool builders
 .externalToolBuilders/
 
