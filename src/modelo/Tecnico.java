@@ -3,27 +3,32 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tecnico {
+import dao.IDInterface;
+
+public class Tecnico implements IDInterface{
 	private Integer id;
 	private String nome;
 	private String matricula;
 	private String especialidade;
-	private List<Ocorrencia> Ocorrencia = new ArrayList<Ocorrencia>();
+	private List<Ocorrencia> ocorrencias = new ArrayList<Ocorrencia>();
 	
 	
-	public Tecnico(String nome, String matricula, String especialidade, List<modelo.Ocorrencia> ocorrencia) {
+	public Tecnico(String nome, String matricula, String especialidade) {
 		super();
-		this.nome = nome;
-		this.matricula = matricula;
-		this.especialidade = especialidade;
-		Ocorrencia = ocorrencia;
+		setNome(nome);
+		setMatricula(matricula);
+		setEspecialidade(especialidade);
+	
 	}
-	public Integer getId() {
-		return id;
+	
+	public void adicionarOcorrencias(Ocorrencia o) {
+		ocorrencias.add(o);
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	
+	public void removerOcorrencia(Ocorrencia o) {
+		ocorrencias.remove(o);
 	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -43,11 +48,35 @@ public class Tecnico {
 		this.especialidade = especialidade;
 	}
 	public List<Ocorrencia> getOcorrencia() {
-		return Ocorrencia;
+		return ocorrencias;
 	}
 	public void setOcorrencia(List<Ocorrencia> ocorrencia) {
-		Ocorrencia = ocorrencia;
+		this.ocorrencias = ocorrencia;
 	}
-	
-	
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		String texto = "Tecnico [id=" + id
+				+ ", nome=" + nome
+				+ ", matricula=" + matricula
+				+ ", especialidade=" + especialidade
+				+ ", ocorrencias="; 
+		if (ocorrencias.isEmpty())
+			texto += " vazio";
+		else
+			for (Ocorrencia ocorrencia : ocorrencias) 
+				texto += " " + ocorrencia.getId() + ", ";
+			
+		return texto + "]";
+	}
 }

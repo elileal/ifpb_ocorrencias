@@ -1,18 +1,19 @@
 package modelo;
 
-public class Responsavel {
+import dao.IDInterface;
+
+public class Responsavel implements IDInterface{
 	
-	private String id;
+	private Integer id;
 	private String nome;
 	private String telefone;
 	private String endereco;
 	private Local local;
-	public Responsavel(String id, String nome, String telefone, Local local) {
+	
+	public Responsavel(String nome, String telefone) {
 		super();
-		this.id = id;
-		this.nome = nome;
-		this.telefone = telefone;
-		this.local = local;
+		setNome(nome);
+		setTelefone(telefone);
 	}
 	public String getNome() {
 		return nome;
@@ -38,9 +39,33 @@ public class Responsavel {
 	public void setLocal(Local local) {
 		this.local = local;
 	}
-	public String getId() {
+
+	@Override
+	public int getId() {
 		return id;
 	}
+
+	@Override
+	public void setId(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String toString() {
+		String texto = "Responsavel [id=" + id 
+				+ ", nome=" + nome 
+				+ ", telefone=" + telefone 
+				+ ", endereco=" + endereco
+				+ ", local=";
+		if(local != null)
+			texto += local.getMedidor();
+		else
+			texto += " vazio";
+		
+		return texto;
+	}
+	
+	
 	
 	
 }

@@ -3,33 +3,33 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Local {
+import dao.IDInterface;
+
+public class Local implements IDInterface{
 	private Integer id;
 	private Cidade cidade;
 	private String medidor;
 	private List<Responsavel> responsaveis = new ArrayList<Responsavel>();
 	//VER SE É POSSÍVEL INCLUIR DADOS DO CONTRATO
-	private String contrato;
-	private List<Site> sites = new ArrayList<Site>();
+	//private String contrato;
+	private Site site;
 	
-	public Local(Integer id, Cidade cidade, String medidor, List<Responsavel> responsaveis,
-			List<Site> sites) {
+	public Local(Cidade cidade, String medidor) {
 		super();
-		this.id = id;
-		this.cidade = cidade;
-		this.medidor = medidor;
-		this.responsaveis = responsaveis;
-		this.sites = sites;
+		setCidade(cidade);
+		setMedidor(medidor);
 	}
-
-	public Integer getId() {
-		return id;
+	
+	public void adcionarResponsavel(Responsavel r) {
+		responsaveis.add(r);
+		r.setLocal(this);
 	}
-
-	public void setId(Integer id) {
-		this.id = id;
+	
+	public void removerResponsavel(Responsavel r) {
+		responsaveis.remove(r);
+		r.setLocal(null);
 	}
-
+	
 	public Cidade getCidade() {
 		return cidade;
 	}
@@ -54,22 +54,55 @@ public class Local {
 		this.responsaveis = responsaveis;
 	}
 
-	public String getContrato() {
-		return contrato;
+//	public String getContrato() {
+//		return contrato;
+//	}
+//
+//	public void setContrato(String contrato) {
+//		this.contrato = contrato;
+//	}
+
+	public Site getSite() {
+		return site;
 	}
 
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
+	public void setSite(Site site) {
+		this.site = site;
 	}
 
-	public List<Site> getSites() {
-		return sites;
+	@Override
+	public String toString() {
+		String texto = "Local [id=" + id
+				+ ", cidade=";
+		if(cidade != null)
+			texto += cidade.getNome();
+		else
+			texto += " vazio";
+				
+		texto += ", medidor=" + medidor
+				+ ", site=";
+		if(site != null)
+			texto += site.getAlias();
+		else
+			texto += "vazio";
+			
+		texto += ", responsaveis=";
+		if (responsaveis.isEmpty())
+			texto += " vazio";
+		else
+			for (Responsavel responsavel : responsaveis) 
+				texto += " " + responsavel.getNome(); 
+		
+		return texto + "]";
 	}
 
-	public void setSites(List<Site> sites) {
-		this.sites = sites;
+	@Override
+	public int getId() {
+		return id;
 	}
-	
-	
 
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
 }

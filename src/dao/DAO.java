@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.File;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -25,8 +26,10 @@ public abstract class DAO<T> implements DAOInterface<T> {
 	}
 	
 	public static void abrirBancoLocal() {
+		new File("banco.db4o").delete();  //apagar o banco
+		
 		EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
-		config.common().messageLevel(0);
+		config.common().messageLevel(1);
 		
 		config.common().objectClass(Cidade.class).cascadeOnDelete(false);
 		config.common().objectClass(Cidade.class).cascadeOnUpdate(true);
@@ -65,50 +68,54 @@ public abstract class DAO<T> implements DAOInterface<T> {
 		}
 	}
 	
-	public void create(T obj) {
-		manager.store(obj);
-	};
-	
-	@SuppressWarnings("unchecked")
-	public T read(int id) {
-		Class<T> type = (Class<T>) ((ParameterizedType) this.getClass()
-				.getGenericSuperclass()).getActualTypeArguments()[0];
-		Query q = manager.query();
-		q.constrain(type);
-		q.descend("id").constrain(id);
-		List<T> resultados = q.execute();
-		if(resultados.size()>0)
-			return (T) resultados.get(0);
-		else
-			return null;
-	}
-	
-	public T update(T obj) {
-		manager.store(obj);
-		return obj;
-	}
-	
-	public void delete(T obj) {
-		manager.delete(obj);
-	}
-	
-	public void refresh(T obj) {
-		manager.ext().refresh(obj, Integer.MAX_VALUE);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<T> readAll(){
-		Class<T> type = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-		Query q = manager.query();
-		q.constrain(type);
-		return (List<T>) q.execute();
-	}
-	
-	public static void begin() {}
-	public static void commit() {
-		manager.commit();
-	}
-	public static void roolback() {
-		manager.rollback();
-	}
+	//----------CRUD-----------------------
+
+		public void create(T obj){
+			manager.store( obj );
+		}
+		
+		@SuppressWarnings("unchecked")
+		public T read(int id){
+			Class<T> type = (Class<T>) ((ParameterizedType) this.getClass()
+					.getGenericSuperclass()).getActualTypeArguments()[0];
+			Query q = manager.query();
+			q.constrain(type);
+			q.descend("id").constrain(id);
+			List<T> resultados = q.execute();
+			if (resultados.size()>0)
+				return (T) resultados.get(0);
+			else
+				return null;
+		}
+
+		public T update(T obj){
+			manager.store(obj);
+			return obj;
+		}
+
+		public void delete(T obj) {
+			manager.delete(obj);
+		}
+
+		public void refresh(T obj){
+			manager.ext().refresh(obj, Integer.MAX_VALUE);
+		}
+
+		@SuppressWarnings("unchecked")
+		public List<T> readAll(){
+			Class<T> type = (Class<T>) ((ParameterizedType) this.getClass()
+					.getGenericSuperclass()).getActualTypeArguments()[0];
+			Query q = manager.query();
+			q.constrain(type);
+			return (List<T>) q.execute();
+		}
+		
+		//--------transa��o---------------
+		public static void begin(){	}		// tem que ser vazio
+		public static void commit(){
+			manager.commit();
+		}
+		public static void rollback(){
+			manager.rollback();
+		}
 }

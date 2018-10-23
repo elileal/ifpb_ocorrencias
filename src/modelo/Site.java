@@ -3,7 +3,10 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Site {
+import dao.IDInterface;
+
+public class Site implements IDInterface{
+	private Integer id;
 	private String alias;
 	private String ip_nvr;
 	private String ip_cameras;
@@ -11,20 +14,37 @@ public class Site {
 	private String ip_swicth;
 	private String lat;
 	private String log;
-	private Integer id;
 	private Float altura;
 	private Integer canais;
 	private Local local;
 	private List<Ocorrencia> ocorrencias = new ArrayList<Ocorrencia>();
 	
-	public Site(String alias, String lat, String log, Integer id, Float altura, Local local) {
+	public Site(String alias, String lat, String log, Float altura) {
 		super();
-		this.alias = alias;
-		this.lat = lat;
-		this.log = log;
-		this.id = id;
-		this.altura = altura;
-		this.local = local;
+		setAlias(alias);
+		setLat(lat);
+		setLog(log);
+		setAltura(altura);
+	}
+	
+	public void adicionarLocal(Local l) {
+		setLocal(l);
+		l.setSite(this);
+	}
+	
+	public void removerLocal(Local l) {
+		setLocal(null);
+		l.setSite(null);
+	}
+	
+	public void adicionarOcorrencia(Ocorrencia o) {
+		ocorrencias.add(o);
+		o.setSite(this);
+	}
+	
+	public void removerOcorrencia(Ocorrencia o) {
+		ocorrencias.remove(o);
+		o.setSite(null);
 	}
 
 	public String getAlias() {
@@ -115,10 +135,41 @@ public class Site {
 		this.ocorrencias = ocorrencias;
 	}
 
-	public Integer getId() {
+	@Override
+	public String toString() {
+		String texto =  "Site [id=" + id 
+				+ ", alias=" + alias 
+				+ ", ip_nvr=" + ip_nvr 
+				+ ", ip_cameras=" + ip_cameras
+				+ ", ip_central=" + ip_central 
+				+ ", ip_swicth=" + ip_swicth 
+				+ ", lat=" + lat 
+				+ ", log=" + log
+				+ ", altura=" + altura 
+				+ ", canais=" + canais 
+				+ ", local=";
+		if(local != null)
+			texto += local.getMedidor();
+		else
+			texto = " vazio";
+		
+		texto += ", ocorrencias=";
+				if (ocorrencias.isEmpty()) {
+					texto += " vazio";
+				}
+				else
+					for (Ocorrencia ocorrencia : ocorrencias) 
+						texto += " " + ocorrencia.getId();
+				return texto + "]";
+	}
+
+	@Override
+	public int getId() {
 		return id;
 	}
-	
-	
-	
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
 }
