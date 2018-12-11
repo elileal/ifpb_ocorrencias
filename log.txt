@@ -1,0 +1,48 @@
+[EL Fine]: server: 2018-12-11 14:30:04.193--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2018-12-11 14:30:04.373--ServerSession(979294118)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Cidade] is set to [FIELD].
+[EL Config]: metadata: 2018-12-11 14:30:04.403--ServerSession(979294118)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Cidade] is being defaulted to: Cidade.
+[EL Config]: metadata: 2018-12-11 14:30:04.403--ServerSession(979294118)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Cidade] is being defaulted to: CIDADE.
+[EL Config]: metadata: 2018-12-11 14:30:04.413--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2018-12-11 14:30:04.413--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-11 14:30:04.413--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [locais] is being defaulted to: LOCAIS.
+[EL Info]: 2018-12-11 14:30:05.093--ServerSession(979294118)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.1.v20171221-bd47e8f
+[EL Fine]: connection: 2018-12-11 14:30:05.213--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.PostgreSQLPlatform
+[EL Config]: connection: 2018-12-11 14:30:05.223--ServerSession(979294118)--Connection(1164107853)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=>PostgreSQLPlatform
+	user name=> "postgres"
+	datasource URL=> "jdbc:postgresql://localhost:5432/ocorrencia"
+))
+[EL Config]: connection: 2018-12-11 14:30:05.263--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--Connected: jdbc:postgresql://localhost:5432/ocorrencia
+	User: postgres
+	Database: PostgreSQL  Version: 9.3.4
+	Driver: PostgreSQL Native Driver  Version: PostgreSQL 9.4 JDBC4.1 (build 1206)
+[EL Info]: connection: 2018-12-11 14:30:05.313--ServerSession(979294118)--Thread(Thread[main,5,main])--/file:/C:/Users/IFPB/Downloads/ifpb_ocorrencias/target/classes/_loja-eclipselink login successful
+[EL Fine]: sql: 2018-12-11 14:30:05.393--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--CREATE TABLE CIDADE (ID  SERIAL NOT NULL, LOCAIS BYTEA, NOME VARCHAR(255), PRIMARY KEY (ID))
+[EL Fine]: sql: 2018-12-11 14:30:05.874--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
+	bind => [Patos]
+[EL Fine]: sql: 2018-12-11 14:30:05.894--ClientSession(589311950)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
+	bind => [[B@1df8b5b8, Patos]
+[EL Fine]: sql: 2018-12-11 14:30:05.894--ClientSession(589311950)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-12-11 14:30:05.914--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
+	bind => [João Pessoa]
+[EL Fine]: sql: 2018-12-11 14:30:05.914--ClientSession(1486726131)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
+	bind => [[B@1cd629b3, João Pessoa]
+[EL Fine]: sql: 2018-12-11 14:30:05.914--ClientSession(1486726131)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-12-11 14:30:05.924--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
+	bind => [Campina Grande]
+[EL Fine]: sql: 2018-12-11 14:30:05.924--ClientSession(1272123492)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
+	bind => [[B@4d518b32, Campina Grande]
+[EL Fine]: sql: 2018-12-11 14:30:05.924--ClientSession(1272123492)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-12-11 14:30:05.934--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
+	bind => [Areia]
+[EL Fine]: sql: 2018-12-11 14:30:05.934--ClientSession(2139788441)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
+	bind => [[B@2b72cb8a, Areia]
+[EL Fine]: sql: 2018-12-11 14:30:05.934--ClientSession(2139788441)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-12-11 14:30:05.944--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
+	bind => [Camurim]
+[EL Fine]: sql: 2018-12-11 14:30:05.944--ClientSession(644052207)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
+	bind => [[B@5d99c6b5, Camurim]
+[EL Fine]: sql: 2018-12-11 14:30:05.944--ClientSession(644052207)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
+[EL Config]: connection: 2018-12-11 14:30:05.954--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2018-12-11 14:30:05.954--ServerSession(979294118)--Thread(Thread[main,5,main])--/file:/C:/Users/IFPB/Downloads/ifpb_ocorrencias/target/classes/_loja-eclipselink logout successful
+[EL Config]: connection: 2018-12-11 14:30:05.954--ServerSession(979294118)--Connection(1164107853)--Thread(Thread[main,5,main])--disconnect

@@ -3,10 +3,18 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import dao.IDInterface;
 
+@Entity
 public class Cidade implements IDInterface{
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private List<Local> locais = new ArrayList<Local>();
@@ -15,6 +23,8 @@ public class Cidade implements IDInterface{
 		super();
 		setNome(nome);
 	}
+	
+	public Cidade () {}
 	
 	public void adcionarLocal(Local l) {
 		locais.add(l);
