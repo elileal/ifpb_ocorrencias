@@ -3,9 +3,20 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 import dao.IDInterface;
 
+@Entity
 public class Site implements IDInterface{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String alias;
 	private String ip_nvr;
@@ -16,7 +27,10 @@ public class Site implements IDInterface{
 	private String log;
 	private Float altura;
 	private Integer canais;
+	@OneToOne
 	private Local local;
+	@OneToMany
+	@JoinColumn(name="fk_site")
 	private List<Ocorrencia> ocorrencias = new ArrayList<Ocorrencia>();
 	
 	public Site(String alias, String lat, String log, Float altura) {

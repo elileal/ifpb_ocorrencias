@@ -4,14 +4,28 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 import dao.IDInterface;
 
+@Entity
 public class Ocorrencia implements IDInterface{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String descricao;
 	private Date data;
 	private String solucao;
+	@OneToOne
 	private Site site;
+	@OneToMany
+	@JoinColumn(name="fk_ocorrencia")
 	private List<Tecnico> tecnicos = new ArrayList<Tecnico>();
 	
 	public Ocorrencia(String descricao, Site site) {

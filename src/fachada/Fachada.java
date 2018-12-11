@@ -21,7 +21,7 @@ import modelo.Tecnico;
 
 public class Fachada {
 	private static DAOCidade daocidade = new DAOCidade();
-//	private static DAOLocal daolocal = new DAOLocal();
+	private static DAOLocal daolocal = new DAOLocal();
 //	private static DAOOcorrencia daoocorrencia = new DAOOcorrencia();
 //	private static DAOResponsavel daoresponsavel = new DAOResponsavel();
 //	private static DAOSite daosite = new DAOSite();
@@ -87,7 +87,7 @@ public class Fachada {
 		}
 		return texto;		
 	}
-	public static int totalCidades() {
+	public static Long totalCidades() {
 		return daocidade.consultarTotalCidades();
 	}
 	

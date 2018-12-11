@@ -3,13 +3,25 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
 import dao.IDInterface;
 
+@Entity
 public class Tecnico implements IDInterface{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String matricula;
 	private String especialidade;
+	@OneToMany
+	@JoinColumn(name="fk_tecnico")
 	private List<Ocorrencia> ocorrencias = new ArrayList<Ocorrencia>();
 	
 	

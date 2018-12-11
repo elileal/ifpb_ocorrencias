@@ -7,7 +7,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import modelo.Cidade;
-import modelo.Local;
 
 public class DAOCidade  extends DAO<Cidade>{
 
@@ -22,29 +21,20 @@ public class DAOCidade  extends DAO<Cidade>{
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public  List<Cidade> consultarCidadeSemLocal() {
-		Query q = manager.query();
-		q.constrain(Cidade.class);
-		q.constrain(new Filtro3());
-		List<Cidade> result = q.execute();
-		return result; 
+		Query q = manager.createQuery(
+				"select c from Cidade c where c.local is null");
+		return q.getResultList();
 	}
 
-	public int consultarTotalCidades() {
-		Query q = manager.query();
-		q.constrain(Cidade.class);
-		int total = q.execute().size(); 
-		return total;
+	public Long consultarTotalCidades() {
+		Query q = manager.createQuery(
+				"select count(c) from Cidade c");
+		return (Long) q.getSingleResult();
 	}
 	
 }
 
-@SuppressWarnings("serial")
-class Filtro3 implements Evaluation{
-	public void evaluate(Candidate candidate) {
-		Cidade c = (Cidade) candidate.getObject();
-		candidate.include(c.getLocais().size() == 0);
-	}
-}
 
 

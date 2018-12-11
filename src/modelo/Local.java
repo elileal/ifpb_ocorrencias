@@ -3,15 +3,30 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 import dao.IDInterface;
 
+@Entity
 public class Local implements IDInterface{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	@OneToOne
 	private Cidade cidade;
 	private String medidor;
+	@OneToMany
+	@JoinColumn(name="fk_local")
 	private List<Responsavel> responsaveis = new ArrayList<Responsavel>();
 	//VER SE É POSSÍVEL INCLUIR DADOS DO CONTRATO
 	//private String contrato;
+	@OneToOne
 	private Site site;
 	
 	public Local(Cidade cidade, String medidor) {
