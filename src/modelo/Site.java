@@ -40,6 +40,7 @@ public class Site implements IDInterface{
 		setLog(log);
 		setAltura(altura);
 	}
+	public Site() {}
 	
 	public void adicionarLocal(Local l) {
 		setLocal(l);

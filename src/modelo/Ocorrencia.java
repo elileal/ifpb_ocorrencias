@@ -35,6 +35,7 @@ public class Ocorrencia implements IDInterface{
 		setData(new Date());
 	}
 	
+	public Ocorrencia() {}
 	public void solucao(String s) {
 		setSolucao(s);
 	}

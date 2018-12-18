@@ -1,25 +1,26 @@
-package dao;
+package daojpa;
 
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+
 import com.db4o.query.Candidate;
 import com.db4o.query.Evaluation;
-import com.db4o.query.Query;
 
 import modelo.Tecnico;
 
 public class DAOTecnico  extends DAO<Tecnico>{
 
 	public Tecnico readByName (String nome){	
-		Query q = manager.query();
-		q.constrain(Tecnico.class);
-		q.descend("nome").constrain(nome);
-		List<Tecnico> resultados = q.execute();
-		if (resultados.size()>0)
-			return (Tecnico) resultados.get(0);
-		else
+		try{
+			Query q = manager.createQuery("select t from Tecnico t where t.nome='" + nome +"'");
+			return (Tecnico) q.getSingleResult();
+
+		}catch(NoResultException e){			
 			return null;
+		}
 	}
 	
 	

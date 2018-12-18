@@ -1,23 +1,23 @@
-package dao;
+package daojpa;
 
 
 import java.util.List;
 
-import com.db4o.query.Query;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 import modelo.Responsavel;
 
 public class DAOResponsavel  extends DAO<Responsavel>{
 
 	public Responsavel readByName (String nome){	
-		Query q = manager.query();
-		q.constrain(Responsavel.class);
-		q.descend("nome").constrain(nome);
-		List<Responsavel> resultados = q.execute();
-		if (resultados.size()>0)
-			return (Responsavel) resultados.get(0);
-		else
+		try{
+			Query q = manager.createQuery("select r from Responsavel r where r.nome='" + nome +"'");
+			return (Responsavel) q.getSingleResult();
+
+		}catch(NoResultException e){			
 			return null;
+		}
 	}
 	
 	

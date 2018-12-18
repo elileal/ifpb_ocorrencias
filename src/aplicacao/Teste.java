@@ -5,14 +5,14 @@ import fachada.Fachada;
 public class Teste {
 	public static void Cadastrar() {
 		try {
-			System.out.println("Cadastrando Cidades...");
-			Fachada.cadastrarCidade("Patos");
-			Fachada.cadastrarCidade("João Pessoa");
-			Fachada.cadastrarCidade("Campina Grande");
-			Fachada.cadastrarCidade("Areia");
-			Fachada.cadastrarCidade("Camurim");
-			System.out.println("Fim do Cadastro de Cidades...");
-			
+//			System.out.println("Cadastrando Cidades...");
+//			Fachada.cadastrarCidade("Patos");
+//			Fachada.cadastrarCidade("João Pessoa");
+//			Fachada.cadastrarCidade("Campina Grande");
+//			Fachada.cadastrarCidade("Areia");
+//			Fachada.cadastrarCidade("Camurim");
+//			System.out.println("Fim do Cadastro de Cidades...");
+////			
 //			System.out.println("Cadastrando Locais...");
 //			Fachada.cadastrarLocal("Patos", "546127");
 //			Fachada.cadastrarLocal("João Pessoa", "549513");
@@ -33,27 +33,27 @@ public class Teste {
 //			Fachada.cadastrarTecnico("Reuelson", "5237891", "Engenheiro");
 //			Fachada.cadastrarTecnico("Danilo", "5236987", "Telecomunicações");
 //			System.out.println("Fim do Cadastro de Tecnicos...");
-//
-//			System.out.println("Cadastrando Ocorrencias...");
-//			Fachada.cadastrarOcorrencia("Alarme de Hack", "JURU", "Joseildo");
-//			Fachada.cadastrarOcorrencia("Temperatura", "CAMP", "Reuelson");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "CAMP", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "CAMP", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "CAMP", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "CAMP", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
-//			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
-//			System.out.println("Fim do Cadastro de Ocorrencias...");
-//			
-//			System.out.println("Cadastrando Responsaveis...");
-//			Fachada.cadastrarResponsavel("Eliabe", "83988434480", "546127");
-//			Fachada.cadastrarResponsavel("Ingrid", "83988434587", "984521");
-//			System.out.println("Fim do Cadastro de Responsaveis...");
+
+			System.out.println("Cadastrando Ocorrencias...");
+			Fachada.cadastrarOcorrencia("Alarme de Hack", "JURU", "Joseildo");
+			Fachada.cadastrarOcorrencia("Temperatura", "CAMP", "Reuelson");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "CAMP", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "CAMP", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "CAMP", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "CAMP", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
+			Fachada.cadastrarOcorrencia("Alarme de presença", "ALDH", "Danilo");
+			System.out.println("Fim do Cadastro de Ocorrencias...");
+			
+			System.out.println("Cadastrando Responsaveis...");
+			Fachada.cadastrarResponsavel("Eliabe", "83988434480", "546127");
+			Fachada.cadastrarResponsavel("Ingrid", "83988434587", "984521");
+			System.out.println("Fim do Cadastro de Responsaveis...");
 //			
 //			
 			

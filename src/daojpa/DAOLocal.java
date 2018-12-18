@@ -1,23 +1,25 @@
-package dao;
+package daojpa;
 
 import java.util.List;
 
-import com.db4o.query.Query;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 import modelo.Cidade;
 import modelo.Local;
 
 public class DAOLocal extends DAO<Local>{
+	
 	public Local readByNome (String nome){	
-		Query q = manager.query();
-		q.constrain(Local.class);
-		q.descend("medidor").constrain(nome);
-		List<Local> resultados = q.execute();
-		if (resultados.size()>0)
-			return (Local) resultados.get(0);
-		else
+		try{
+			Query q = manager.createQuery("select l from Local l where l.medidor='" + nome +"'");
+			return (Local) q.getSingleResult();
+
+		}catch(NoResultException e){			
 			return null;
+		}
 	}
+	
 	public Local readById (Integer Id){	
 		Query q = manager.query();
 		q.constrain(Local.class);

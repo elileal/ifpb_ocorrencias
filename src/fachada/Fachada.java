@@ -22,10 +22,10 @@ import modelo.Tecnico;
 public class Fachada {
 	private static DAOCidade daocidade = new DAOCidade();
 	private static DAOLocal daolocal = new DAOLocal();
-//	private static DAOOcorrencia daoocorrencia = new DAOOcorrencia();
-//	private static DAOResponsavel daoresponsavel = new DAOResponsavel();
-//	private static DAOSite daosite = new DAOSite();
-//	private static DAOTecnico daotecnico = new DAOTecnico();
+	private static DAOOcorrencia daoocorrencia = new DAOOcorrencia();
+	private static DAOResponsavel daoresponsavel = new DAOResponsavel();
+	private static DAOSite daosite = new DAOSite();
+	private static DAOTecnico daotecnico = new DAOTecnico();
 
 	public static void inicializar(){
 		DAO.open();

@@ -1,4 +1,4 @@
-package dao;
+package daojpa;
 
 import java.util.List;
 

@@ -35,6 +35,8 @@ public class Local implements IDInterface{
 		setMedidor(medidor);
 	}
 	
+	public Local() {}
+	
 	public void adcionarResponsavel(Responsavel r) {
 		responsaveis.add(r);
 		r.setLocal(this);

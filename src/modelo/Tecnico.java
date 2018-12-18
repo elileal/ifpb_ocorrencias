@@ -33,6 +33,8 @@ public class Tecnico implements IDInterface{
 	
 	}
 	
+	public Tecnico() {}
+	
 	public void adicionarOcorrencias(Ocorrencia o) {
 		ocorrencias.add(o);
 	}

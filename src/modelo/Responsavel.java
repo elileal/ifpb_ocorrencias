@@ -1,5 +1,6 @@
 package modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class Responsavel implements IDInterface{
 	private String nome;
 	private String telefone;
 	private String endereco;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Local local;
 	
 	public Responsavel(String nome, String telefone) {
@@ -24,6 +25,8 @@ public class Responsavel implements IDInterface{
 		setNome(nome);
 		setTelefone(telefone);
 	}
+	public Responsavel() {}
+	
 	public String getNome() {
 		return nome;
 	}
