@@ -1,4 +1,4 @@
-package dao;
+package daodb4o;
 
 import java.util.List;
 import java.util.TreeMap;
@@ -13,10 +13,10 @@ import com.db4o.events.EventRegistryFactory;
 /**********************************
  * IFPB - Curso Superior de Tec. em Sist. para Internet
  * Persistencia de Objetos
- * Prof. Fausto Maranhão Ayres
+ * Prof. Fausto Maranhï¿½o Ayres
  **********************************/
 public class IDControl {
-	// Faz a geração automatica de IDs para qualquer classe que implementa
+	// Faz a geraï¿½ï¿½o automatica de IDs para qualquer classe que implementa
 	// a interface IDInterface
 	protected static ObjectContainer manager;
 	private static boolean gerounovoid;		
@@ -53,7 +53,7 @@ public class IDControl {
 						novoid = ids.get(nomedaclasse)+1;  // incrementa ultimo id
 					ids.put(nomedaclasse, novoid);  // guarda novo id 
 
-					// inserir o novo id  no objeto que está sendo persistido
+					// inserir o novo id  no objeto que estï¿½ sendo persistido
 					((IDInterface) objeto).setId(novoid); 
 					gerounovoid = true;
 					//System.out.println("--->gerando id="+novoid+" para a classe="+nomedaclasse);

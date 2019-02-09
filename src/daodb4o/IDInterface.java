@@ -4,7 +4,7 @@
  * Prof. Fausto Ayres
  *
  */
-package dao;
+package daodb4o;
 
 public interface IDInterface {
 	int  getId();

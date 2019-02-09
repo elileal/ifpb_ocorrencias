@@ -3,14 +3,14 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-import dao.IDInterface;
+import daodb4o.IDInterface;
 
 @Entity
 public class Cidade implements IDInterface{
@@ -19,9 +19,8 @@ public class Cidade implements IDInterface{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	@OneToMany
-	@JoinColumn(name="fk_cidade")
-	private List<Local> locais = new ArrayList<Local>();
+	@OneToMany(mappedBy="cidade", cascade=CascadeType.ALL)
+	private List<Local> locais = new ArrayList<>();
 	
 	public Cidade(String nome) {
 		super();

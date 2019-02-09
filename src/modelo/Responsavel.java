@@ -1,13 +1,12 @@
 package modelo;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
-import dao.IDInterface;
+import daodb4o.IDInterface;
 
 @Entity
 public class Responsavel implements IDInterface{
@@ -17,7 +16,7 @@ public class Responsavel implements IDInterface{
 	private String nome;
 	private String telefone;
 	private String endereco;
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	private Local local;
 	
 	public Responsavel(String nome, String telefone) {

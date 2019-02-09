@@ -6,9 +6,6 @@ import java.util.List;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import com.db4o.query.Candidate;
-import com.db4o.query.Evaluation;
-
 import modelo.Site;
 
 public class DAOSite  extends DAO<Site>{
@@ -30,21 +27,12 @@ public class DAOSite  extends DAO<Site>{
 		return (Long) q.getSingleResult();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Site> consultarSitesSemOcorrencias(){
-		Query q = manager.query();
-		q.constrain(Site.class);
-		q.constrain(new Filtro());
-		List<Site> result = q.execute();
-		return result;
+		Query q = manager.createQuery(
+				"select s from Site s where s.ocorrencias IS EMPTY");
+        return (List<Site>) q.getResultList();
 	}
 	
-}
-
-@SuppressWarnings("serial")
-class Filtro implements Evaluation {
-	public void evaluate(Candidate candidate) {
-		Site s = (Site) candidate.getObject();
-		candidate.include(s.getOcorrencias().size() == 0);
-	}
 }
 

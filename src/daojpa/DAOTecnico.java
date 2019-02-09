@@ -6,9 +6,7 @@ import java.util.List;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import com.db4o.query.Candidate;
-import com.db4o.query.Evaluation;
-
+import modelo.Site;
 import modelo.Tecnico;
 
 public class DAOTecnico  extends DAO<Tecnico>{
@@ -23,27 +21,17 @@ public class DAOTecnico  extends DAO<Tecnico>{
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Tecnico> consultarTecnicoSemOcorrencias(){
+		Query q = manager.createQuery(
+                "select t from Tecnico t where t.ocorrencias IS EMPTY");
+        return (List<Tecnico>) q.getResultList();
+	}
 	
-	public  List<Tecnico> consultarTecnicoSemOcorrencias() {
-		Query q = manager.query();
-		q.constrain(Tecnico.class);
-		q.constrain(new Filtro2());
-		List<Tecnico> result = q.execute();
-		return result;
-	}
 
-	public int consultarTotalTecnicos() {
-		Query q = manager.query();
-		q.constrain(Tecnico.class);
-		int total = q.execute().size(); 
-		return total;
-	}
-}
-
-@SuppressWarnings("serial")
-class Filtro2 implements Evaluation {
-	public void evaluate(Candidate candidate) {
-		Tecnico t =(Tecnico) candidate.getObject();
-		candidate.include(t.getOcorrencia().size() == 0);
+	public Long consultarTotalTecnicos() {
+		Query q = manager.createQuery(
+				"select count(t) from Tecnico t");
+		return (Long) q.getSingleResult();
 	}
 }

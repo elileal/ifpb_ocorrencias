@@ -79,10 +79,10 @@ public class Fachada {
 		List<Cidade> aux = daocidade.readAll();
 		String texto = "\nListagem de cidades: ";
 		if (aux.isEmpty())
-			texto += "NÃ£o tem cidade cadastrada";
+			texto += "Não tem cidade cadastrada";
 		else {	
 			for(Cidade c: aux) {
-				texto += "\n" + c; 
+				texto += "\n" + c.getNome(); 
 			}
 		}
 		return texto;		
@@ -103,7 +103,7 @@ public class Fachada {
 		Cidade c = daocidade.readByNome(cidade);
 		if(c == null) {
 			DAO.rollback();
-			throw new Exception("cidade nÃ£o cadastrada:" + cidade);
+			throw new Exception("cidade Não cadastrada:" + cidade);
 		}
 		
 		Local l = new Local(c, medidor);
@@ -151,10 +151,10 @@ public class Fachada {
 		List<Local> aux = daolocal.readAll();
 		String texto = "\nListagem de locais: ";
 		if (aux.isEmpty())
-			texto += "NÃ£o tem local cadastrado";
+			texto += "Não tem local cadastrado";
 		else {	
-			for(Local c: aux) {
-				texto += "\n" + c; 
+			for(Local l: aux) {
+				texto += "\n" + l.getMedidor(); 
 			}
 		}
 		return texto;		
@@ -171,12 +171,13 @@ public class Fachada {
 		Site s = daosite.readByAlias(alias);
 		if(s != null) {
 			DAO.rollback();
-			throw new Exception("site jÃ¡ cadastrado:" + alias);
+			throw new Exception("site ja cadastrado:" + alias);
 		}
 		Local l = daolocal.readByNome(local);
+		
 		if(l == null) {
 			DAO.rollback();
-			throw new Exception("local nÃ£o cadastrado:" + local);
+			throw new Exception("local não cadastrado:" + local);
 		}
 		
 		s = new Site(alias, lat, log, altura);
@@ -214,16 +215,16 @@ public class Fachada {
 		List<Site> aux = daosite.readAll();
 		String texto = "\nListagem de Sites: ";
 		if (aux.isEmpty())
-			texto += "NÃ£o tem Site cadastrado";
+			texto += "Não tem Site cadastrado";
 		else {	
-			for(Site o: aux) {
-				texto += "\n" + o; 
+			for(Site s: aux) {
+				texto += "\n" + s.getAlias(); 
 			}
 		}
 		return texto;		
 	}
 	
-	public static int totalSites() {
+	public static Long totalSites() {
 		return daocidade.consultarTotalCidades();
 	}
 	
@@ -246,12 +247,12 @@ public class Fachada {
 		Site s = daosite.readByAlias(alias);
 		if(s == null) {
 			DAO.rollback();
-			throw new Exception("site nÃ£o cadastrado:" + alias);
+			throw new Exception("site Não cadastrado:" + alias);
 		}
 		Tecnico t = daotecnico.readByName(tecnico);
 		if(t == null) {
 			DAO.rollback();
-			throw new Exception("tecnico nÃ£o cadastrado:" +tecnico);
+			throw new Exception("tecnico Não cadastrado:" +tecnico);
 		}
 		
 		Ocorrencia o = new Ocorrencia(descricao, s);
@@ -293,16 +294,16 @@ public class Fachada {
 		List<Ocorrencia> aux = daoocorrencia.readAll();
 		String texto = "\nListagem de Ocorrencias: ";
 		if (aux.isEmpty())
-			texto += "NÃ£o tem Ocorrencia cadastrado";
+			texto += "Não tem Ocorrencia cadastrado";
 		else {	
 			for(Ocorrencia o: aux) {
-				texto += "\n" + o; 
+				texto += "\n" + o.getDescricao(); 
 			}
 		}
 		return texto;		
 	}
 	
-	public static int totalOcorrencias() {
+	public static Long totalOcorrencias() {
 		return daoocorrencia.consultarTotalOcorrencias();
 	}
 	
@@ -312,12 +313,12 @@ public class Fachada {
 		DAO.begin();
 		Responsavel r = daoresponsavel.readByName(nome);
 		if(r != null) {
-			throw new Exception("Responsavel jÃ¡ cadastrado:" + nome);
+			throw new Exception("Responsavel ja cadastrado:" + nome);
 		}
 		
 		Local l = daolocal.readByNome(medidor);
 		if(l == null)
-			throw new Exception("Local nÃ£o cadastrado");
+			throw new Exception("Local Não cadastrado");
 		
 		r = new Responsavel(nome, telefone);
 		r.setLocal(l);
@@ -346,12 +347,12 @@ public class Fachada {
 
 	public static String listarResponsavel() {
 		List<Responsavel> aux = daoresponsavel.readAll();
-		String texto = "\nListagem de Responsavels: ";
+		String texto = "\nListagem de Responsaveis: ";
 		if (aux.isEmpty())
-			texto += "NÃ£o tem Responsavel cadastrado";
+			texto += "Não tem Responsavel cadastrado";
 		else {	
-			for(Responsavel o: aux) {
-				texto += "\n" + o; 
+			for(Responsavel r: aux) {
+				texto += "\n" + r.getNome(); 
 			}
 		}
 		return texto;		
@@ -363,7 +364,7 @@ public class Fachada {
 			DAO.begin();
 			Tecnico t = daotecnico.readByName(nome);
 			if(t != null) {
-				throw new Exception("Tecnico jÃ¡ cadastrado:" + nome);
+				throw new Exception("Tecnico ja cadastrado:" + nome);
 			}
 			
 			t = new Tecnico(nome, matricula, especialidade);
@@ -393,21 +394,20 @@ public class Fachada {
 			List<Tecnico> aux = daotecnico.readAll();
 			String texto = "\nListagem de Tecnicos: ";
 			if (aux.isEmpty())
-				texto += "NÃ£o tem Tecnico cadastrado";
+				texto += "Não tem Tecnico cadastrado";
 			else {	
-				for(Tecnico o: aux) {
-					texto += "\n" + o; 
+				for(Tecnico t: aux) {
+					texto += "\n" + t.getNome(); 
 				}
 			}
 			return texto;		
 		}
 		
-		public static int totalTecnicos() {
+		public static Long totalTecnicos() {
 			return daotecnico.consultarTotalTecnicos();
 		}
 		public static List<Tecnico> tecnicosSemOcorrencias(){
-			List<Tecnico> t = daotecnico.consultarTecnicoSemOcorrencias();
-			return t;
+			return daotecnico.consultarTecnicoSemOcorrencias();
 		}
 }
  

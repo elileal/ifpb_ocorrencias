@@ -24,8 +24,8 @@ public class DAOCidade  extends DAO<Cidade>{
 	@SuppressWarnings("unchecked")
 	public  List<Cidade> consultarCidadeSemLocal() {
 		Query q = manager.createQuery(
-				"select c from Cidade c where c.local is null");
-		return q.getResultList();
+				"select c from Cidade c where c.locais is empty");
+		return (List<Cidade>) q.getResultList();
 	}
 
 	public Long consultarTotalCidades() {

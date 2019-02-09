@@ -1,29 +1,38 @@
 package daojpa;
 
-import java.util.List;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
-import com.db4o.query.Query;
-
+import modelo.Local;
 import modelo.Ocorrencia;
 
 public class DAOOcorrencia extends DAO<Ocorrencia> {
 	
-	public Ocorrencia readById (String id){	
-		Query q = manager.query();
-		q.constrain(Ocorrencia.class);
-		q.descend("id").constrain(id);
-		List<Ocorrencia> resultados = q.execute();
-		if (resultados.size()>0)
-			return (Ocorrencia) resultados.get(0);
-		else
+	public Ocorrencia readById (String id){
+		try{
+			Query q = manager.createQuery("select o from Ocorrencia o where o.id='" + id +"'");
+			return (Ocorrencia) q.getSingleResult();
+
+		}catch(NoResultException e){			
 			return null;
+		}
+	}
+	
+	public Local readByNome (String nome){	
+		try{
+			Query q = manager.createQuery("select l from Local l where l.medidor='" + nome +"'");
+			return (Local) q.getSingleResult();
+
+		}catch(NoResultException e){			
+			return null;
+		}
 	}
 	
 
-	public int consultarTotalOcorrencias() {
-		Query q = manager.query();
-		q.constrain(Ocorrencia.class);
-		int total = q.execute().size(); 
-		return total;
-	}	
+	public Long consultarTotalOcorrencias() {
+		Query q = manager.createQuery(
+				"select count(o) from Ocorrencia o");
+		return (Long) q.getSingleResult();
+	}
+	
 }

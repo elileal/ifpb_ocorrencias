@@ -1,48 +1,131 @@
-[EL Fine]: server: 2018-12-11 14:30:04.193--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
-[EL Config]: metadata: 2018-12-11 14:30:04.373--ServerSession(979294118)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Cidade] is set to [FIELD].
-[EL Config]: metadata: 2018-12-11 14:30:04.403--ServerSession(979294118)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Cidade] is being defaulted to: Cidade.
-[EL Config]: metadata: 2018-12-11 14:30:04.403--ServerSession(979294118)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Cidade] is being defaulted to: CIDADE.
-[EL Config]: metadata: 2018-12-11 14:30:04.413--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
-[EL Config]: metadata: 2018-12-11 14:30:04.413--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2018-12-11 14:30:04.413--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [locais] is being defaulted to: LOCAIS.
-[EL Info]: 2018-12-11 14:30:05.093--ServerSession(979294118)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.1.v20171221-bd47e8f
-[EL Fine]: connection: 2018-12-11 14:30:05.213--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.PostgreSQLPlatform
-[EL Config]: connection: 2018-12-11 14:30:05.223--ServerSession(979294118)--Connection(1164107853)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
-	platform=>PostgreSQLPlatform
-	user name=> "postgres"
-	datasource URL=> "jdbc:postgresql://localhost:5432/ocorrencia"
+[EL Fine]: server: 2019-02-09 13:43:24.864--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2019-02-09 13:43:24.979--ServerSession(979294118)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Local] is set to [FIELD].
+[EL Config]: metadata: 2019-02-09 13:43:24.991--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cidade] is being defaulted to: class modelo.Cidade.
+[EL Config]: metadata: 2019-02-09 13:43:24.992--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field site] is being defaulted to: class modelo.Site.
+[EL Config]: metadata: 2019-02-09 13:43:24.999--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field responsaveis] is being defaulted to: class modelo.Responsavel.
+[EL Config]: metadata: 2019-02-09 13:43:25.0--ServerSession(979294118)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Tecnico] is set to [FIELD].
+[EL Config]: metadata: 2019-02-09 13:43:25.0--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to many mapping element [field ocorrencias] is being defaulted to: class modelo.Ocorrencia.
+[EL Config]: metadata: 2019-02-09 13:43:25.001--ServerSession(979294118)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Cidade] is set to [FIELD].
+[EL Config]: metadata: 2019-02-09 13:43:25.001--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field locais] is being defaulted to: class modelo.Local.
+[EL Config]: metadata: 2019-02-09 13:43:25.001--ServerSession(979294118)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Site] is set to [FIELD].
+[EL Config]: metadata: 2019-02-09 13:43:25.001--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field ocorrencias] is being defaulted to: class modelo.Ocorrencia.
+[EL Config]: metadata: 2019-02-09 13:43:25.002--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field local] is being defaulted to: class modelo.Local.
+[EL Config]: metadata: 2019-02-09 13:43:25.002--ServerSession(979294118)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Ocorrencia] is set to [FIELD].
+[EL Config]: metadata: 2019-02-09 13:43:25.002--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field site] is being defaulted to: class modelo.Site.
+[EL Config]: metadata: 2019-02-09 13:43:25.002--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to many mapping element [field tecnicos] is being defaulted to: class modelo.Tecnico.
+[EL Config]: metadata: 2019-02-09 13:43:25.003--ServerSession(979294118)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Responsavel] is set to [FIELD].
+[EL Config]: metadata: 2019-02-09 13:43:25.003--ServerSession(979294118)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field local] is being defaulted to: class modelo.Local.
+[EL Config]: metadata: 2019-02-09 13:43:25.003--ServerSession(979294118)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Local] is being defaulted to: Local.
+[EL Config]: metadata: 2019-02-09 13:43:25.005--ServerSession(979294118)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Local] is being defaulted to: LOCAL.
+[EL Config]: metadata: 2019-02-09 13:43:25.015--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [medidor] is being defaulted to: MEDIDOR.
+[EL Config]: metadata: 2019-02-09 13:43:25.016--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.017--ServerSession(979294118)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Tecnico] is being defaulted to: Tecnico.
+[EL Config]: metadata: 2019-02-09 13:43:25.017--ServerSession(979294118)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Tecnico] is being defaulted to: TECNICO.
+[EL Config]: metadata: 2019-02-09 13:43:25.017--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [especialidade] is being defaulted to: ESPECIALIDADE.
+[EL Config]: metadata: 2019-02-09 13:43:25.017--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [matricula] is being defaulted to: MATRICULA.
+[EL Config]: metadata: 2019-02-09 13:43:25.017--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2019-02-09 13:43:25.018--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.018--ServerSession(979294118)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Cidade] is being defaulted to: Cidade.
+[EL Config]: metadata: 2019-02-09 13:43:25.018--ServerSession(979294118)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Cidade] is being defaulted to: CIDADE.
+[EL Config]: metadata: 2019-02-09 13:43:25.018--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2019-02-09 13:43:25.018--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.018--ServerSession(979294118)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Site] is being defaulted to: Site.
+[EL Config]: metadata: 2019-02-09 13:43:25.018--ServerSession(979294118)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Site] is being defaulted to: SITE.
+[EL Config]: metadata: 2019-02-09 13:43:25.019--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [ip_nvr] is being defaulted to: IP_NVR.
+[EL Config]: metadata: 2019-02-09 13:43:25.019--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [canais] is being defaulted to: CANAIS.
+[EL Config]: metadata: 2019-02-09 13:43:25.019--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [log] is being defaulted to: LOG.
+[EL Config]: metadata: 2019-02-09 13:43:25.019--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [altura] is being defaulted to: ALTURA.
+[EL Config]: metadata: 2019-02-09 13:43:25.019--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [ip_cameras] is being defaulted to: IP_CAMERAS.
+[EL Config]: metadata: 2019-02-09 13:43:25.02--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [alias] is being defaulted to: ALIAS.
+[EL Config]: metadata: 2019-02-09 13:43:25.02--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [ip_swicth] is being defaulted to: IP_SWICTH.
+[EL Config]: metadata: 2019-02-09 13:43:25.02--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.02--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [ip_central] is being defaulted to: IP_CENTRAL.
+[EL Config]: metadata: 2019-02-09 13:43:25.02--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [lat] is being defaulted to: LAT.
+[EL Config]: metadata: 2019-02-09 13:43:25.02--ServerSession(979294118)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Ocorrencia] is being defaulted to: Ocorrencia.
+[EL Config]: metadata: 2019-02-09 13:43:25.021--ServerSession(979294118)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Ocorrencia] is being defaulted to: OCORRENCIA.
+[EL Config]: metadata: 2019-02-09 13:43:25.021--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [solucao] is being defaulted to: SOLUCAO.
+[EL Config]: metadata: 2019-02-09 13:43:25.021--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [data] is being defaulted to: DATA.
+[EL Config]: metadata: 2019-02-09 13:43:25.022--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.022--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [descricao] is being defaulted to: DESCRICAO.
+[EL Config]: metadata: 2019-02-09 13:43:25.023--ServerSession(979294118)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Responsavel] is being defaulted to: Responsavel.
+[EL Config]: metadata: 2019-02-09 13:43:25.023--ServerSession(979294118)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Responsavel] is being defaulted to: RESPONSAVEL.
+[EL Config]: metadata: 2019-02-09 13:43:25.023--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [telefone] is being defaulted to: TELEFONE.
+[EL Config]: metadata: 2019-02-09 13:43:25.023--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [endereco] is being defaulted to: ENDERECO.
+[EL Config]: metadata: 2019-02-09 13:43:25.023--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2019-02-09 13:43:25.023--ServerSession(979294118)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.033--ServerSession(979294118)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field cidade] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.033--ServerSession(979294118)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [cidade] is being defaulted to: CIDADE_ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.033--ServerSession(979294118)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field site] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.034--ServerSession(979294118)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [site] is being defaulted to: SITE_ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.044--ServerSession(979294118)--Thread(Thread[main,5,main])--The join table name for the many to many mapping [field ocorrencias] is being defaulted to: TECNICO_OCORRENCIA.
+[EL Config]: metadata: 2019-02-09 13:43:25.044--ServerSession(979294118)--Thread(Thread[main,5,main])--The source primary key column name for the many to many mapping [field ocorrencias] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.044--ServerSession(979294118)--Thread(Thread[main,5,main])--The source foreign key column name for the many to many mapping [ocorrencias] is being defaulted to: tecnicos_ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.045--ServerSession(979294118)--Thread(Thread[main,5,main])--The target primary key column name for the many to many mapping [field ocorrencias] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.045--ServerSession(979294118)--Thread(Thread[main,5,main])--The target foreign key column name for the many to many mapping [ocorrencias] is being defaulted to: ocorrencias_ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.045--ServerSession(979294118)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field local] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.045--ServerSession(979294118)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [local] is being defaulted to: LOCAL_ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.045--ServerSession(979294118)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field site] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.045--ServerSession(979294118)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [site] is being defaulted to: SITE_ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.046--ServerSession(979294118)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field local] is being defaulted to: ID.
+[EL Config]: metadata: 2019-02-09 13:43:25.046--ServerSession(979294118)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [local] is being defaulted to: LOCAL_ID.
+[EL Info]: 2019-02-09 13:43:25.12--ServerSession(979294118)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.1.v20171221-bd47e8f
+[EL Fine]: connection: 2019-02-09 13:43:25.3--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.MySQLPlatform
+[EL Config]: connection: 2019-02-09 13:43:25.305--ServerSession(979294118)--Connection(592617454)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=>MySQLPlatform
+	user name=> "eclipse"
+	datasource URL=> "jdbc:mysql://127.0.0.1:3306/ocorrencias"
 ))
-[EL Config]: connection: 2018-12-11 14:30:05.263--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--Connected: jdbc:postgresql://localhost:5432/ocorrencia
-	User: postgres
-	Database: PostgreSQL  Version: 9.3.4
-	Driver: PostgreSQL Native Driver  Version: PostgreSQL 9.4 JDBC4.1 (build 1206)
-[EL Info]: connection: 2018-12-11 14:30:05.313--ServerSession(979294118)--Thread(Thread[main,5,main])--/file:/C:/Users/IFPB/Downloads/ifpb_ocorrencias/target/classes/_loja-eclipselink login successful
-[EL Fine]: sql: 2018-12-11 14:30:05.393--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--CREATE TABLE CIDADE (ID  SERIAL NOT NULL, LOCAIS BYTEA, NOME VARCHAR(255), PRIMARY KEY (ID))
-[EL Fine]: sql: 2018-12-11 14:30:05.874--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
-	bind => [Patos]
-[EL Fine]: sql: 2018-12-11 14:30:05.894--ClientSession(589311950)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
-	bind => [[B@1df8b5b8, Patos]
-[EL Fine]: sql: 2018-12-11 14:30:05.894--ClientSession(589311950)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
-[EL Fine]: sql: 2018-12-11 14:30:05.914--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
-	bind => [João Pessoa]
-[EL Fine]: sql: 2018-12-11 14:30:05.914--ClientSession(1486726131)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
-	bind => [[B@1cd629b3, João Pessoa]
-[EL Fine]: sql: 2018-12-11 14:30:05.914--ClientSession(1486726131)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
-[EL Fine]: sql: 2018-12-11 14:30:05.924--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
+[EL Config]: connection: 2019-02-09 13:43:25.316--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://127.0.0.1:3306/ocorrencias
+	User: eclipse@localhost
+	Database: MySQL  Version: 5.7.25-0ubuntu0.18.04.2
+	Driver: MySQL-AB JDBC Driver  Version: mysql-connector-java-5.1.24 ( Revision: ${bzr.revision-id} )
+[EL Info]: connection: 2019-02-09 13:43:25.351--ServerSession(979294118)--Thread(Thread[main,5,main])--/file:/media/arquivos/Google Drive (eliabe.leal@academico.ifpb.edu.br)/IFPB/TSI/P4/PersistÃªncia de Objetos/workspace/ifpb_ocorrencias/target/classes/_ocorrencias login successful
+[EL Fine]: sql: 2019-02-09 13:43:25.527--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, NOME FROM CIDADE
+[EL Fine]: sql: 2019-02-09 13:43:25.533--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, MEDIDOR, CIDADE_ID, SITE_ID FROM LOCAL
+[EL Fine]: sql: 2019-02-09 13:43:25.535--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ALIAS, ALTURA, CANAIS, IP_CAMERAS, IP_CENTRAL, IP_NVR, IP_SWICTH, LAT, LOG, LOCAL_ID FROM SITE WHERE (ID = ?)
+	bind => [1]
+[EL Fine]: sql: 2019-02-09 13:43:25.537--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ALIAS, ALTURA, CANAIS, IP_CAMERAS, IP_CENTRAL, IP_NVR, IP_SWICTH, LAT, LOG, LOCAL_ID FROM SITE WHERE (ID = ?)
+	bind => [2]
+[EL Fine]: sql: 2019-02-09 13:43:25.539--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ALIAS, ALTURA, CANAIS, IP_CAMERAS, IP_CENTRAL, IP_NVR, IP_SWICTH, LAT, LOG, LOCAL_ID FROM SITE WHERE (ID = ?)
+	bind => [3]
+[EL Fine]: sql: 2019-02-09 13:43:25.54--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ALIAS, ALTURA, CANAIS, IP_CAMERAS, IP_CENTRAL, IP_NVR, IP_SWICTH, LAT, LOG, LOCAL_ID FROM SITE WHERE (ID = ?)
+	bind => [4]
+[EL Fine]: sql: 2019-02-09 13:43:25.541--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, DATA, DESCRICAO, SOLUCAO, SITE_ID FROM OCORRENCIA
+[EL Fine]: sql: 2019-02-09 13:43:25.549--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ALIAS, ALTURA, CANAIS, IP_CAMERAS, IP_CENTRAL, IP_NVR, IP_SWICTH, LAT, LOG, LOCAL_ID FROM SITE
+[EL Fine]: sql: 2019-02-09 13:43:25.551--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ENDERECO, NOME, TELEFONE, LOCAL_ID FROM RESPONSAVEL
+[EL Fine]: sql: 2019-02-09 13:43:25.553--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ESPECIALIDADE, MATRICULA, NOME FROM TECNICO
+[EL Fine]: sql: 2019-02-09 13:43:25.561--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT COUNT(ID) FROM CIDADE
+[EL Fine]: sql: 2019-02-09 13:43:25.563--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT COUNT(ID) FROM CIDADE
+[EL Fine]: sql: 2019-02-09 13:43:25.565--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT COUNT(ID) FROM TECNICO
+[EL Fine]: sql: 2019-02-09 13:43:25.569--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT COUNT(ID) FROM OCORRENCIA
+[EL Fine]: sql: 2019-02-09 13:43:25.58--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, NOME FROM CIDADE WHERE (NOME = ?)
 	bind => [Campina Grande]
-[EL Fine]: sql: 2018-12-11 14:30:05.924--ClientSession(1272123492)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
-	bind => [[B@4d518b32, Campina Grande]
-[EL Fine]: sql: 2018-12-11 14:30:05.924--ClientSession(1272123492)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
-[EL Fine]: sql: 2018-12-11 14:30:05.934--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
-	bind => [Areia]
-[EL Fine]: sql: 2018-12-11 14:30:05.934--ClientSession(2139788441)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
-	bind => [[B@2b72cb8a, Areia]
-[EL Fine]: sql: 2018-12-11 14:30:05.934--ClientSession(2139788441)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
-[EL Fine]: sql: 2018-12-11 14:30:05.944--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--SELECT ID, LOCAIS, NOME FROM CIDADE WHERE (NOME = ?)
-	bind => [Camurim]
-[EL Fine]: sql: 2018-12-11 14:30:05.944--ClientSession(644052207)--Connection(711327356)--Thread(Thread[main,5,main])--INSERT INTO CIDADE (LOCAIS, NOME) VALUES (?, ?)
-	bind => [[B@5d99c6b5, Camurim]
-[EL Fine]: sql: 2018-12-11 14:30:05.944--ClientSession(644052207)--Connection(711327356)--Thread(Thread[main,5,main])--select lastval()
-[EL Config]: connection: 2018-12-11 14:30:05.954--ServerSession(979294118)--Connection(711327356)--Thread(Thread[main,5,main])--disconnect
-[EL Info]: connection: 2018-12-11 14:30:05.954--ServerSession(979294118)--Thread(Thread[main,5,main])--/file:/C:/Users/IFPB/Downloads/ifpb_ocorrencias/target/classes/_loja-eclipselink logout successful
-[EL Config]: connection: 2018-12-11 14:30:05.954--ServerSession(979294118)--Connection(1164107853)--Thread(Thread[main,5,main])--disconnect
+[EL Fine]: sql: 2019-02-09 13:43:25.583--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT t0.ID, t0.MEDIDOR, t0.CIDADE_ID, t0.SITE_ID FROM LOCAL t0, CIDADE t2, CIDADE t1 WHERE ((t2.NOME = ?) AND ((t0.CIDADE_ID = t1.ID) AND (t2.ID = t0.CIDADE_ID)))
+	bind => [Campina Grande]
+[EL Fine]: sql: 2019-02-09 13:43:25.585--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ENDERECO, NOME, TELEFONE, LOCAL_ID FROM RESPONSAVEL WHERE (LOCAL_ID = ?)
+	bind => [3]
+[EL Fine]: sql: 2019-02-09 13:43:25.587--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ENDERECO, NOME, TELEFONE, LOCAL_ID FROM RESPONSAVEL WHERE (LOCAL_ID = ?)
+	bind => [4]
+[EL Fine]: sql: 2019-02-09 13:43:25.59--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT t0.ID, t0.ALIAS, t0.ALTURA, t0.CANAIS, t0.IP_CAMERAS, t0.IP_CENTRAL, t0.IP_NVR, t0.IP_SWICTH, t0.LAT, t0.LOG, t0.LOCAL_ID FROM SITE t0 WHERE ((SELECT COUNT(t1.ID) FROM OCORRENCIA t1 WHERE (t1.SITE_ID = t0.ID)) = ?)
+	bind => [0]
+[EL Fine]: sql: 2019-02-09 13:43:25.592--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, DATA, DESCRICAO, SOLUCAO, SITE_ID FROM OCORRENCIA WHERE (SITE_ID = ?)
+	bind => [4]
+[EL Fine]: sql: 2019-02-09 13:43:25.593--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT t0.ID, t0.ESPECIALIDADE, t0.MATRICULA, t0.NOME FROM TECNICO t0 WHERE ((SELECT COUNT(t1.ID) FROM TECNICO_OCORRENCIA t2, OCORRENCIA t1 WHERE ((t2.tecnicos_ID = t0.ID) AND (t1.ID = t2.ocorrencias_ID))) = ?)
+	bind => [0]
+[EL Fine]: sql: 2019-02-09 13:43:25.595--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT t0.ID, t0.NOME FROM CIDADE t0 WHERE ((SELECT COUNT(t1.ID) FROM LOCAL t1 WHERE (t1.CIDADE_ID = t0.ID)) = ?)
+	bind => [0]
+[EL Fine]: sql: 2019-02-09 13:43:25.596--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, MEDIDOR, CIDADE_ID, SITE_ID FROM LOCAL WHERE (CIDADE_ID = ?)
+	bind => [5]
+[EL Fine]: sql: 2019-02-09 13:43:25.597--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT COUNT(ID) FROM OCORRENCIA
+[EL Fine]: sql: 2019-02-09 13:43:25.598--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ALIAS, ALTURA, CANAIS, IP_CAMERAS, IP_CENTRAL, IP_NVR, IP_SWICTH, LAT, LOG, LOCAL_ID FROM SITE WHERE (ALIAS = ?)
+	bind => [CAMP]
+[EL Fine]: sql: 2019-02-09 13:43:25.599--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, DATA, DESCRICAO, SOLUCAO, SITE_ID FROM OCORRENCIA WHERE (SITE_ID = ?)
+	bind => [3]
+[EL Fine]: sql: 2019-02-09 13:43:25.606--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT COUNT(ID) FROM OCORRENCIA
+[EL Fine]: sql: 2019-02-09 13:43:25.607--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, ALIAS, ALTURA, CANAIS, IP_CAMERAS, IP_CENTRAL, IP_NVR, IP_SWICTH, LAT, LOG, LOCAL_ID FROM SITE WHERE (ALIAS = ?)
+	bind => [ALDH]
+[EL Fine]: sql: 2019-02-09 13:43:25.608--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--SELECT ID, DATA, DESCRICAO, SOLUCAO, SITE_ID FROM OCORRENCIA WHERE (SITE_ID = ?)
+	bind => [2]
+[EL Config]: connection: 2019-02-09 13:43:25.61--ServerSession(979294118)--Connection(932285561)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2019-02-09 13:43:25.61--ServerSession(979294118)--Thread(Thread[main,5,main])--/file:/media/arquivos/Google Drive (eliabe.leal@academico.ifpb.edu.br)/IFPB/TSI/P4/PersistÃªncia de Objetos/workspace/ifpb_ocorrencias/target/classes/_ocorrencias logout successful
+[EL Config]: connection: 2019-02-09 13:43:25.61--ServerSession(979294118)--Connection(592617454)--Thread(Thread[main,5,main])--disconnect

@@ -7,11 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import dao.IDInterface;
+import daodb4o.IDInterface;
 
 @Entity
 public class Site implements IDInterface{
@@ -29,9 +28,8 @@ public class Site implements IDInterface{
 	private Integer canais;
 	@OneToOne
 	private Local local;
-	@OneToMany
-	@JoinColumn(name="fk_site")
-	private List<Ocorrencia> ocorrencias = new ArrayList<Ocorrencia>();
+	@OneToMany(mappedBy="site")
+	private List<Ocorrencia> ocorrencias = new ArrayList<>();
 	
 	public Site(String alias, String lat, String log, Float altura) {
 		super();

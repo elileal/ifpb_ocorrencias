@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
-import dao.IDInterface;
+import daodb4o.IDInterface;
 
 @Entity
 public class Tecnico implements IDInterface{
@@ -20,9 +20,8 @@ public class Tecnico implements IDInterface{
 	private String nome;
 	private String matricula;
 	private String especialidade;
-	@OneToMany
-	@JoinColumn(name="fk_tecnico")
-	private List<Ocorrencia> ocorrencias = new ArrayList<Ocorrencia>();
+	@ManyToMany(fetch = FetchType.LAZY)
+	private List<Ocorrencia> ocorrencias = new ArrayList<>();
 	
 	
 	public Tecnico(String nome, String matricula, String especialidade) {

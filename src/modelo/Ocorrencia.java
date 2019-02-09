@@ -5,14 +5,14 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
-import dao.IDInterface;
+import daodb4o.IDInterface;
 
 @Entity
 public class Ocorrencia implements IDInterface{
@@ -22,11 +22,10 @@ public class Ocorrencia implements IDInterface{
 	private String descricao;
 	private Date data;
 	private String solucao;
-	@OneToOne
+	@ManyToOne
 	private Site site;
-	@OneToMany
-	@JoinColumn(name="fk_ocorrencia")
-	private List<Tecnico> tecnicos = new ArrayList<Tecnico>();
+	@ManyToMany(mappedBy="ocorrencias", fetch = FetchType.LAZY)
+	private List<Tecnico> tecnicos = new ArrayList<>();;
 	
 	public Ocorrencia(String descricao, Site site) {
 		super();

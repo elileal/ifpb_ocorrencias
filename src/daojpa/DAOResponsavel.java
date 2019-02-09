@@ -1,8 +1,5 @@
 package daojpa;
 
-
-import java.util.List;
-
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
@@ -20,19 +17,24 @@ public class DAOResponsavel  extends DAO<Responsavel>{
 		}
 	}
 	
-	
-	public  List<Responsavel> consultarResponsavelSemLocal() {
-		Query q = manager.query();
-		q.constrain(Responsavel.class);
-		q.descend("locais").constrain(null);
-		return q.execute(); 
+		
+	public Responsavel consultarResponsavelSemLocal(){
+		try {
+			Query q = manager.createQuery("select r from Responsavel r where r.local=null");
+			return (Responsavel) q.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+		
 	}
 
 	public int consultarTotalResponsavels() {
-		Query q = manager.query();
-		q.constrain(Responsavel.class);
-		int total = q.execute().size(); 
-		return total;
+		try {
+			Query q = manager.createQuery("select count(r) from Responsavel r");
+			return (int) q.getSingleResult();
+		} catch (NoResultException e) {
+			return 0;
+		}
 	}
 	
 	
