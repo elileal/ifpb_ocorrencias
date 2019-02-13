@@ -30,7 +30,7 @@ public class DAOSite  extends DAO<Site>{
 	@SuppressWarnings("unchecked")
 	public List<Site> consultarSitesSemOcorrencias(){
 		Query q = manager.createQuery(
-				"select s from Site s where s.ocorrencias IS EMPTY");
+				"select s.alias from Site s where s.ocorrencias IS EMPTY");
         return (List<Site>) q.getResultList();
 	}
 	

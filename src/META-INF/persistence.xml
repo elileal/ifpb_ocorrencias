@@ -8,8 +8,8 @@
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-		    <property name="javax.persistence.jdbc.url"  value="jdbc:mysql://127.0.0.1:3306/ocorrencias" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+		    <property name="javax.persistence.jdbc.url"  value="jdbc:mysql://127.0.0.1:3306/ocorrencias?useTimezone=true&amp;serverTimezone=UTC" />
 		    <property name="javax.persistence.jdbc.user"  value="eclipse" />
 		    <property name="javax.persistence.jdbc.password" value="ecl!PsEl0cA1h027" />
 		    

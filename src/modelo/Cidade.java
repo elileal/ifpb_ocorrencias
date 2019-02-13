@@ -19,7 +19,11 @@ public class Cidade implements IDInterface{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	@OneToMany(mappedBy="cidade", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="cidade", cascade= {
+			CascadeType.PERSIST, 
+//			CascadeType.REMOVE,
+			CascadeType.MERGE, 
+			CascadeType.REFRESH})
 	private List<Local> locais = new ArrayList<>();
 	
 	public Cidade(String nome) {

@@ -24,7 +24,7 @@ public class DAOTecnico  extends DAO<Tecnico>{
 	@SuppressWarnings("unchecked")
 	public List<Tecnico> consultarTecnicoSemOcorrencias(){
 		Query q = manager.createQuery(
-                "select t from Tecnico t where t.ocorrencias IS EMPTY");
+                "select t.nome from Tecnico t where t.ocorrencias IS EMPTY");
         return (List<Tecnico>) q.getResultList();
 	}
 	
@@ -33,5 +33,16 @@ public class DAOTecnico  extends DAO<Tecnico>{
 		Query q = manager.createQuery(
 				"select count(t) from Tecnico t");
 		return (Long) q.getSingleResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Site> consultarSites(String nome) {
+		try{
+			Query q = manager.createQuery("select distinct s.alias from Site s JOIN s.ocorrencias o join o.tecnicos t where t.nome='" + nome +"'");
+			return (List<Site>) q.getResultList();
+
+		}catch(NoResultException e){			
+			return null;
+		}
 	}
 }

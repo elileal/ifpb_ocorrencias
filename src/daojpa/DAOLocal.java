@@ -24,7 +24,7 @@ public class DAOLocal extends DAO<Local>{
 	public  List<Local> consultarLocaisDaCidade(Cidade c) {
 //		System.out.println(c.getNome());
 		Query q = manager.createQuery(
-				"select l from Cidade c JOIN c.locais l where l.cidade.nome='"+c.getNome()+"'");
+				"select l.medidor from Cidade c JOIN c.locais l where l.cidade.nome='"+c.getNome()+"'");
 		return (List<Local>) q.getResultList();
 	}
 	

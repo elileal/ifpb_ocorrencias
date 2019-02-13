@@ -1,5 +1,6 @@
 package modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,11 @@ public class Responsavel implements IDInterface{
 	private String nome;
 	private String telefone;
 	private String endereco;
-	@ManyToOne
+	@ManyToOne(cascade= {
+			CascadeType.PERSIST, 
+//			CascadeType.REMOVE,
+			CascadeType.MERGE, 
+			CascadeType.REFRESH})
 	private Local local;
 	
 	public Responsavel(String nome, String telefone) {

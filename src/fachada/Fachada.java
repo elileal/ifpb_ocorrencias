@@ -62,7 +62,6 @@ public class Fachada {
 		}
 		
 		List<Local> locais = c.getLocais();
-		
 		if(locais != null){
 			
 			for (Local l : locais) {
@@ -166,7 +165,7 @@ public class Fachada {
 	}
 	//---SITES
 	
-	public static Site cadastrarSite(String alias, String lat, String log, Float altura, String local) throws  Exception{
+	public static Site cadastrarSite(String alias, String latlog, Float altura, String local) throws  Exception{
 		DAO.begin();
 		Site s = daosite.readByAlias(alias);
 		if(s != null) {
@@ -180,7 +179,7 @@ public class Fachada {
 			throw new Exception("local não cadastrado:" + local);
 		}
 		
-		s = new Site(alias, lat, log, altura);
+		s = new Site(alias, latlog, altura);
 		s.adicionarLocal(l);
 		daosite.create(s);		
 		DAO.commit();
@@ -197,14 +196,19 @@ public class Fachada {
 		
 		
 		if(s.getOcorrencias() != null){
-			for (Ocorrencia o : s.getOcorrencias()) {
+			List<Ocorrencia> ocorrencias = s.getOcorrencias();
+			for (Ocorrencia o : ocorrencias) {
 				o.setSite(null);
-				apagarOcorrencia(o.getId());
+				daoocorrencia.update(o);
 			}
 		}
 		
-		if(s.getLocal() != null)
-			s.removerLocal(s.getLocal());
+		
+		if(s.getLocal() != null) {
+			Local l = s.getLocal();
+			l.setSite(null);
+			daolocal.update(l);
+		}
 		
 		daosite.delete(s);
 		DAO.commit();
@@ -233,7 +237,7 @@ public class Fachada {
 		return s;
 	}
 	
-	public static double mediaDeOcorrencias (String nome) {
+	public static Double mediaDeOcorrencias (String nome) {
 		double countOcorrencias = totalOcorrencias();
 		Site s = daosite.readByAlias(nome);
 		int qtdPSite = s.getOcorrencias().size();
@@ -286,6 +290,7 @@ public class Fachada {
 		}
 		
 		daoocorrencia.delete(o);
+		
 		DAO.commit();
 		return o;
 	}
@@ -305,6 +310,16 @@ public class Fachada {
 	
 	public static Long totalOcorrencias() {
 		return daoocorrencia.consultarTotalOcorrencias();
+	}
+	
+	public static void atualizaOcorrencia(String id, String descricao) throws Exception {
+		DAO.begin();
+		Ocorrencia o = daoocorrencia.readById(id);
+		if (o == null) 
+			throw new Exception("Ocorrencia nao encontrada"+ id);
+		o.setDescricao(descricao);
+		daoocorrencia.update(o);
+		DAO.commit();
 	}
 	
 	//---RESPONSÃ�VEIS
@@ -401,6 +416,15 @@ public class Fachada {
 				}
 			}
 			return texto;		
+		}
+		
+		public static List<Site> verificaSite(String nome) throws Exception {
+			Tecnico t = daotecnico.readByName(nome);
+			if(t == null)throw new Exception("Tecnico nao cadastrado:"+nome);
+			
+			List<Site> sites = daotecnico.consultarSites(nome);
+			
+			return sites;
 		}
 		
 		public static Long totalTecnicos() {

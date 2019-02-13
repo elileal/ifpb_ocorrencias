@@ -8,7 +8,6 @@ import com.db4o.query.Evaluation;
 import com.db4o.query.Query;
 
 import modelo.Cidade;
-import modelo.Local;
 
 public class DAOCidade  extends DAO<Cidade>{
 

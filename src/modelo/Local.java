@@ -22,7 +22,11 @@ public class Local implements IDInterface{
 	@ManyToOne
 	private Cidade cidade;
 	private String medidor;
-	@OneToMany(mappedBy="local", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="local", cascade= {
+			CascadeType.PERSIST, 
+//			CascadeType.REMOVE,
+			CascadeType.MERGE, 
+			CascadeType.REFRESH})
 	private List<Responsavel> responsaveis = new ArrayList<>();
 	@OneToOne
 	private Site site;

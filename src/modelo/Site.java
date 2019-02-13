@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,20 +23,22 @@ public class Site implements IDInterface{
 	private String ip_cameras;
 	private String ip_central;
 	private String ip_swicth;
-	private String lat;
-	private String log;
+	private String latlog;
 	private Float altura;
 	private Integer canais;
 	@OneToOne
 	private Local local;
-	@OneToMany(mappedBy="site")
+	@OneToMany(mappedBy="site", cascade= {
+			CascadeType.PERSIST, 
+//			CascadeType.REMOVE,
+			CascadeType.MERGE, 
+			CascadeType.REFRESH})
 	private List<Ocorrencia> ocorrencias = new ArrayList<>();
 	
-	public Site(String alias, String lat, String log, Float altura) {
+	public Site(String alias, String latlog, Float altura) {
 		super();
 		setAlias(alias);
-		setLat(lat);
-		setLog(log);
+		setlatlog(latlog);
 		setAltura(altura);
 	}
 	public Site() {}
@@ -100,20 +103,12 @@ public class Site implements IDInterface{
 		this.ip_swicth = ip_swicth;
 	}
 
-	public String getLat() {
-		return lat;
+	public String getlatlog() {
+		return latlog;
 	}
 
-	public void setLat(String lat) {
-		this.lat = lat;
-	}
-
-	public String getLog() {
-		return log;
-	}
-
-	public void setLog(String log) {
-		this.log = log;
+	public void setlatlog(String latlog) {
+		this.latlog = latlog;
 	}
 
 	public Float getAltura() {
@@ -156,8 +151,7 @@ public class Site implements IDInterface{
 				+ ", ip_cameras=" + ip_cameras
 				+ ", ip_central=" + ip_central 
 				+ ", ip_swicth=" + ip_swicth 
-				+ ", lat=" + lat 
-				+ ", log=" + log
+				+ ", latlog=" + latlog 
 				+ ", altura=" + altura 
 				+ ", canais=" + canais 
 				+ ", local=";

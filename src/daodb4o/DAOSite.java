@@ -3,7 +3,6 @@ package daodb4o;
 
 import java.util.List;
 
-import com.db4o.ObjectSet;
 import com.db4o.query.Candidate;
 import com.db4o.query.Evaluation;
 import com.db4o.query.Query;

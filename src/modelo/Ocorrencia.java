@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,11 @@ public class Ocorrencia implements IDInterface{
 	private String solucao;
 	@ManyToOne
 	private Site site;
-	@ManyToMany(mappedBy="ocorrencias", fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy="ocorrencias", cascade= {
+			CascadeType.PERSIST, 
+//			CascadeType.REMOVE,
+			CascadeType.MERGE, 
+			CascadeType.REFRESH})
 	private List<Tecnico> tecnicos = new ArrayList<>();;
 	
 	public Ocorrencia(String descricao, Site site) {
